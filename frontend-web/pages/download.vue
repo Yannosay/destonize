@@ -22,7 +22,7 @@
           </div>
           <h2>Windows</h2>
           <p>Installer (EXE) – Run the setup wizard.</p>
-          <a href="https://github.com/Yannosay/Destonize/releases/latest/download/Destonize.exe" class="btn btn-primary">Download .exe</a>
+          <a href="https://github.com/Yannosay/destonize/releases/latest/download/DestonizeSetup.exe" class="btn btn-primary">Download .exe</a>
         </div>
 
         <div class="download-card disabled">

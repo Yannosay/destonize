@@ -11,3 +11,4 @@ publish/
 *.log
 *.ps1
 assets/placeholders/
+release-notice.txt

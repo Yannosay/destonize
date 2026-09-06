@@ -1,23 +1,3 @@
-[CmdletBinding()]
-param()
-
-Set-StrictMode -Version Latest
-$ErrorActionPreference = "Stop"
-
-$projectRoot = $PSScriptRoot
-$workflowDir = Join-Path -Path $projectRoot -ChildPath ".github\workflows"
-$workflowPath = Join-Path -Path $workflowDir -ChildPath "build-installer.yml"
-
-function Write-Utf8NoBom {
-    param([string]$Path, [string]$Content)
-    $parent = Split-Path -Path $Path -Parent
-    if (-not (Test-Path -Path $parent)) {
-        New-Item -Path $parent -ItemType Directory -Force | Out-Null
-    }
-    [System.IO.File]::WriteAllText($Path, $Content, [System.Text.UTF8Encoding]::new($false))
-}
-
-$workflowContent = @'
 name: Build Installer
 
 on:
@@ -61,7 +41,3 @@ jobs:
       with:
         name: DestonizeSetup
         path: dist\DestonizeSetup.exe
-'@
-
-Write-Utf8NoBom -Path $workflowPath -Content $workflowContent
-Write-Host "Workflow file created at $workflowPath" -ForegroundColor Green
