@@ -22,7 +22,7 @@
           </div>
           <h2>Windows</h2>
           <p>Installer (EXE) – Run the setup wizard.</p>
-          <a href="https://github.com/YannosayProductions/Destonize/releases/latest/download/Destonize.exe" class="btn btn-primary">Download .exe</a>
+          <a href="https://github.com/Yannosay/Destonize/releases/latest/download/Destonize.exe" class="btn btn-primary">Download .exe</a>
         </div>
 
         <div class="download-card disabled">
@@ -36,7 +36,7 @@
       </div>
 
       <p class="release-note">
-        View all releases on <a href="https://github.com/YannosayProductions/Destonize/releases" target="_blank" rel="noopener">GitHub Releases</a>.
+        View all releases on <a href="https://github.com/Yannosay/Destonize/releases" target="_blank" rel="noopener">GitHub Releases</a>.
       </p>
     </div>
   </section>

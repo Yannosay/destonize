@@ -5,7 +5,7 @@
       <p>Destonize is developed by Yannosay Productions, a software company dedicated to creating professional, user-friendly tools for Windows.</p>
       <p>The project is open source and licensed under the GNU General Public License v3.0.</p>
       <p>
-        Visit our GitHub repository at <a href="https://github.com/YannosayProductions/Destonize" target="_blank" rel="noopener">github.com/YannosayProductions/Destonize</a>
+        Visit our GitHub repository at <a href="https://github.com/Yannosay/Destonize" target="_blank" rel="noopener">github.com/Yannosay/Destonize</a>
       </p>
     </div>
   </section>

@@ -1,0 +1,7 @@
+ACCESS NOTICE
+
+Destonize requires access to your Desktop folder and the ability to move files within it.
+The application will never delete files or alter files outside the Desktop unless explicitly directed by you.
+By continuing with the installation, you acknowledge that you understand and accept this access.
+
+For more information, visit https://github.com/YannosayProductions/Destonize

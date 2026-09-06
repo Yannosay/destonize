@@ -13,7 +13,7 @@ namespace Destonize.Models
         public bool SkipSystemFiles { get; set; } = true;
         public bool CreateUndoLog { get; set; } = true;
         public bool ShowSplash { get; set; } = true;
-        public string UpdateSource { get; set; } = "https://api.github.com/repos/YannosayProductions/Destonize/releases/latest";
+        public string UpdateSource { get; set; } = "https://api.github.com/repos/Yannosay/Destonize/releases/latest";
         public string SkippedUpdateVersion { get; set; } = string.Empty;
         public DateTime? UpdateRemindAt { get; set; } = null;
         public List<SortingRule> SortingRules { get; set; } = new List<SortingRule>();
