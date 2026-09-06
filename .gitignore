@@ -9,4 +9,5 @@ publish/
 *.pdb
 *.cache
 *.log
+*.ps1
 assets/placeholders/

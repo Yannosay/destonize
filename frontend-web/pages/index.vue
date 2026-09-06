@@ -2,7 +2,7 @@
   <div>
     <section class="hero section">
       <div class="container hero-content">
-        <h1 class="hero-title">Organize Your Desktop with Confidence</h1>
+        <img src="/destonize.png" alt="Destonize" class="hero-logo" />
         <p class="hero-subtitle">
           Destonize is a professional desktop cleaning and organizing tool that brings order to chaos with customizable rules, automation, and an intuitive dark interface.
         </p>
@@ -50,19 +50,9 @@ const features = [
     icon: 'undo'
   },
   {
-    title: 'Customizable UI',
-    description: 'Professional dark theme with easy‑to‑use settings.',
-    icon: 'palette'
-  },
-  {
     title: 'Schema Import/Export',
     description: 'Save and share your organization rules as .ize schema files.',
     icon: 'save'
-  },
-  {
-    title: 'System Integration',
-    description: 'Start with Windows and minimize to tray.',
-    icon: 'settings'
   }
 ];
 </script>
@@ -75,19 +65,19 @@ const features = [
 
 .hero-content {
   text-align: center;
-  padding: 4rem 0;
+  padding: 2rem 0; /* reduced from 4rem */
 }
 
-.hero-title {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+.hero-logo {
+  max-width: 800px; /* much bigger */
+  width: 100%;
+  margin-bottom: 0.5rem; /* less bottom margin */
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
   max-width: 700px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1.5rem;
   color: $foreground-muted;
 }
 

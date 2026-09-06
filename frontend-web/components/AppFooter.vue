@@ -9,7 +9,11 @@
         <NuxtLink to="/about" class="link">About</NuxtLink>
       </div>
       <div class="footer-copyright">
-        © 2026 Yannosay Productions. All rights reserved.
+        © 2026 Yannosay Productions
+  
+      </div>
+      <div class="footer-copyright">
+CURRENT LICENSE: GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007, not affiliated with Microsoft in any way.
       </div>
     </div>
   </footer>
