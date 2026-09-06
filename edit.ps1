@@ -7,14 +7,6 @@ $ErrorActionPreference = "Stop"
 $projectRoot = $PSScriptRoot
 Set-Location -Path $projectRoot
 
-function Invoke-Git {
-    param([string[]]$Arguments)
-    & git @Arguments
-    if ($LASTEXITCODE -ne 0) {
-        throw "git $($Arguments[0]) failed with exit code $LASTEXITCODE"
-    }
-}
-
 $remoteUrl = "https://github.com/Yannosay/Destonize.git"
 
 $remoteOutput = & git remote get-url origin 2>$null
@@ -53,9 +45,14 @@ if ($LASTEXITCODE -ne 0) {
     throw "git add failed"
 }
 
-& git commit -m "Update project with installer and corrected links"
-if ($LASTEXITCODE -ne 0) {
-    throw "git commit failed"
+$status = & git status --porcelain
+if ($status -and $status.Trim().Length -gt 0) {
+    & git commit -m "Update project with installer and corrected links"
+    if ($LASTEXITCODE -ne 0) {
+        throw "git commit failed"
+    }
+} else {
+    Write-Host "Nothing to commit, working tree clean." -ForegroundColor Yellow
 }
 
 & git push -u origin main
