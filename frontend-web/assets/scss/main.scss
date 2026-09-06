@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $background;
+  color: $foreground;
+  line-height: 1.6;
+  background-image: radial-gradient(circle at 20% 30%, rgba(134, 160, 217, 0.15) 0%, transparent 60%),
+                    radial-gradient(circle at 80% 70%, rgba(134, 160, 217, 0.1) 0%, transparent 60%);
+  background-attachment: fixed;
+}
+
+a {
+  color: $accent;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $accent-hover;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: $glass-bg;
+  backdrop-filter: blur($glass-blur) saturate(150%);
+  -webkit-backdrop-filter: blur($glass-blur) saturate(150%);
+  border: 1px solid $glass-border;
+  color: $foreground;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+  box-shadow: $glass-shadow;
+
+  &:hover {
+    background: $glass-bg-hover;
+    border-color: $accent;
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-primary {
+  background: $accent;
+  border-color: $accent;
+  color: #fff;
+
+  &:hover {
+    background: $accent-hover;
+    border-color: $accent-hover;
+  }
+}
+
+.btn-secondary {
+  background: $glass-bg;
+  border-color: $glass-border;
+  color: $foreground;
+
+  &:hover {
+    background: $glass-bg-hover;
+    border-color: $accent;
+  }
+}

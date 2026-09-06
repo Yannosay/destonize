@@ -1,0 +1,153 @@
+<Window x:Class="Destonize.OrganizeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Organize Desktop" Height="750" Width="1000"
+        Background="{StaticResource WindowBackgroundBrush}"
+        Foreground="{StaticResource ForegroundBrush}"
+        WindowStartupLocation="CenterOwner" ResizeMode="CanResize">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Organize your desktop with rules" FontSize="20" FontWeight="Bold"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button Content="Load Schema..." Width="110" Height="28" Click="LoadSchema_Click" Margin="0,0,10,0"/>
+                <Button Content="Save Schema..." Width="110" Height="28" Click="SaveSchema_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="360"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Margin="0,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <TextBlock Text="Rules (order matters)" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                    <Button Content="Move Up" Width="80" Height="24" Click="MoveUp_Click" Margin="0,0,5,0"/>
+                    <Button Content="Move Down" Width="80" Height="24" Click="MoveDown_Click" Margin="0,0,5,0"/>
+                    <Button Content="Duplicate" Width="80" Height="24" Click="DuplicateRule_Click" Margin="0,0,5,0"/>
+                    <Button Content="Test Rule" Width="80" Height="24" Click="TestRule_Click"/>
+                </StackPanel>
+                <ListView Grid.Row="1" Name="RulesListView" ItemsSource="{Binding Rules}" SelectedItem="{Binding SelectedRule}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Enabled" Width="60">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsEnabled}" HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Conditions" Width="350">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ConditionSummary}" Foreground="{StaticResource ForegroundBrush}"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Destination" Width="200" DisplayMemberBinding="{Binding Destination}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <TextBlock Text="Rule Details" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <GroupBox Header="Basic Information" Foreground="{StaticResource ForegroundBrush}" Padding="5">
+                        <StackPanel>
+                            <TextBlock Text="Name" Margin="0,5,0,0"/>
+                            <TextBox Name="RuleNameBox" Margin="0,0,0,5"/>
+                            <TextBlock Text="Pattern (e.g. *.png, or text)" Margin="0,5,0,0"/>
+                            <TextBox Name="RulePatternBox" Margin="0,0,0,5"/>
+                            <TextBlock Text="Destination folder" Margin="0,5,0,0"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Name="RuleDestinationBox" Grid.Column="0" Margin="0,0,5,0"/>
+                                <Button Grid.Column="1" Content="..." Width="30" Click="BrowseDestination_Click"/>
+                            </Grid>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Matching Conditions" Foreground="{StaticResource ForegroundBrush}" Padding="5" Margin="0,10,0,0">
+                        <StackPanel>
+                            <TextBlock Text="Name filter (optional)" Margin="0,5,0,0"/>
+                            <TextBox Name="RuleNameFilterBox" Margin="0,0,0,5"/>
+                            <TextBlock Text="Category (optional)" Margin="0,5,0,0"/>
+                            <ComboBox Name="RuleCategoryBox" Margin="0,0,0,10"/>
+                            <TextBlock Text="Size Range (MB)" Margin="0,5,0,0"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Name="MinSizeBox" Grid.Column="0" Margin="0,0,5,0"/>
+                                <TextBlock Text="to" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                                <TextBox Name="MaxSizeBox" Grid.Column="2" Margin="0,0,0,0"/>
+                            </Grid>
+                            <TextBlock Text="Age Range (Days)" Margin="0,5,0,0"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Name="MinAgeBox" Grid.Column="0" Margin="0,0,5,0"/>
+                                <TextBlock Text="to" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                                <TextBox Name="MaxAgeBox" Grid.Column="2" Margin="0,0,0,0"/>
+                            </Grid>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Exclusions and Inclusions" Foreground="{StaticResource ForegroundBrush}" Padding="5" Margin="0,10,0,0">
+                        <StackPanel>
+                            <TextBlock Text="Name Exclusions (comma separated)" Margin="0,5,0,0"/>
+                            <TextBox Name="NameExclusionsBox" Margin="0,0,0,5"/>
+                            <TextBlock Text="Extension Exclusions (comma separated, no dots)" Margin="0,5,0,0"/>
+                            <TextBox Name="ExtExclusionsBox" Margin="0,0,0,5"/>
+                            <TextBlock Text="Extension Inclusions (comma separated, no dots)" Margin="0,5,0,0"/>
+                            <TextBox Name="ExtInclusionsBox" Margin="0,0,0,10"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Button Content="Add" Width="70" Click="AddRule_Click" Margin="0,0,5,0"/>
+                        <Button Content="Update" Width="70" Click="UpdateRule_Click" Margin="0,0,5,0"/>
+                        <Button Content="Remove" Width="70" Click="RemoveRule_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Preview: Desktop files will be moved to folders according to rules." FontSize="12" Foreground="Gray" VerticalAlignment="Center"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button Content="Cancel" Width="90" Height="30" Margin="0,0,10,0" Click="Cancel_Click"/>
+                <Button Content="Organize" Width="120" Height="30" Background="{StaticResource AccentBrush}" Click="OrganizeNow_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

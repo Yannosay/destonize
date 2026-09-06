@@ -1,0 +1,21 @@
+{
+  "name": "destonize-frontend",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "generate": "nuxt generate",
+    "deploy": "wrangler pages deploy .output/public"
+  },
+  "dependencies": {
+    "nuxt": "^4.0.0",
+    "vue": "^3.5.0",
+    "lucide-vue-next": "^0.525.0"
+  },
+  "devDependencies": {
+    "sass": "^1.85.0",
+    "wrangler": "^4.0.0"
+  }
+}
