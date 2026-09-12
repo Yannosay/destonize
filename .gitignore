@@ -10,5 +10,6 @@ publish/
 *.cache
 *.log
 *.ps1
+node_modules/
 assets/placeholders/
 release-notice.txt
