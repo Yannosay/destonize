@@ -10,9 +10,15 @@
     <RootNamespace>Destonize</RootNamespace>
     <ApplicationIcon>..\..\assets\app-icon.ico</ApplicationIcon>
     <UseAppHost>true</UseAppHost>
-    <Version>0.0.1</Version>
-    <FileVersion>0.0.1</FileVersion>
-    <AssemblyVersion>0.0.1</AssemblyVersion>
+
+
+
+    <Version>0.0.2</Version>
+    <FileVersion>0.0.2</FileVersion>
+    <AssemblyVersion>0.0.2</AssemblyVersion>
+
+
+
   </PropertyGroup>
 
   <ItemGroup>
