@@ -39,20 +39,27 @@ const iconComponent = computed(() => iconMap[props.icon] || FolderCog);
 
 <style lang="scss" scoped>
 .feature-card {
-  background: $glass-bg;
-  backdrop-filter: blur($glass-blur);
-  -webkit-backdrop-filter: blur($glass-blur);
-  border: 1px solid $glass-border;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem;
   text-align: center;
-  transition: transform 0.2s, border-color 0.2s, background 0.2s;
-  box-shadow: $glass-shadow;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.06);
 
   &:hover {
-    border-color: $accent;
-    background: $glass-bg-hover;
-    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.35);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.07));
+    transform: scale(1.03);
+    box-shadow: 
+      0 16px 48px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
   }
 }
 
@@ -60,20 +67,29 @@ const iconComponent = computed(() => iconMap[props.icon] || FolderCog);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  background: rgba(134, 160, 217, 0.15);
+  background: linear-gradient(135deg, rgba(134, 160, 217, 0.25), rgba(134, 160, 217, 0.1));
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: $accent;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 
+    0 4px 16px rgba(134, 160, 217, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .feature-title {
   font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
 }
 
 .feature-description {
   color: $foreground-muted;
+  line-height: 1.6;
 }
 </style>

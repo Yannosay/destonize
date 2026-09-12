@@ -13,15 +13,15 @@ DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 LicenseFile=LICENSE.txt
 InfoBeforeFile=ACCESS_NOTICE.txt
-OutputDir=C:\Users\Yannosay\Desktop\YOUTUBE PROJECT\destonize\dist
+OutputDir=C:\Users\Yannosay\Desktop\STUFF\YOUTUBE PROJECT\destonize\dist
 OutputBaseFilename=DestonizeSetup
-SetupIconFile=C:\Users\Yannosay\Desktop\YOUTUBE PROJECT\destonize\publish\assets\app-icon.ico
+SetupIconFile=C:\Users\Yannosay\Desktop\STUFF\YOUTUBE PROJECT\destonize\publish\assets\app-icon.ico
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
 PrivilegesRequired=admin
-ArchitecturesAllowed=x64
-ArchitecturesInstallIn64BitMode=x64
+ArchitecturesAllowed=x64compatible
+ArchitecturesInstallIn64BitMode=x64compatible
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -30,7 +30,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\Yannosay\Desktop\YOUTUBE PROJECT\destonize\publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\Yannosay\Desktop\STUFF\YOUTUBE PROJECT\destonize\publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"

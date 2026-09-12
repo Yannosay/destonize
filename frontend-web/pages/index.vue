@@ -1,99 +1,60 @@
 <template>
-  <div>
-    <section class="hero section">
-      <div class="container hero-content">
-        <img src="/destonize.png" alt="Destonize" class="hero-logo" />
-        <p class="hero-subtitle">
-          Destonize is a professional desktop cleaning and organizing tool that brings order to chaos with customizable rules, automation, and an intuitive dark interface.
-        </p>
-        <div class="hero-actions">
-          <NuxtLink to="/download" class="btn btn-primary">Download Now</NuxtLink>
-          <NuxtLink to="/docs" class="btn btn-secondary">Read Documentation</NuxtLink>
-        </div>
-      </div>
-    </section>
+  <section class="section download-section">
+    <div class="container">
+      <h1 class="section-title">Download Destonize</h1>
+      <p class="download-intro">
+        Choose your platform. Windows is fully supported; macOS and Linux versions are coming soon.
+      </p>
 
-    <section class="features-overview section">
-      <div class="container">
-        <h2 class="section-title">Why Destonize?</h2>
-        <div class="feature-grid">
-          <FeatureCard
-            v-for="feature in features"
-            :key="feature.title"
-            :title="feature.title"
-            :description="feature.description"
-            :icon="feature.icon"
-          />
+      <div class="download-grid">
+        <div class="download-card disabled">
+          <div class="os-icon-wrapper">
+            <svg class="os-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" v-html="appleIcon.svg" />
+          </div>
+          <h2>macOS</h2>
+          <p>Coming soon</p>
+          <button class="btn btn-disabled" disabled>Unavailable</button>
+        </div>
+
+        <div class="download-card active featured">
+          <div class="os-icon-wrapper featured-icon">
+            <svg class="os-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" v-html="windowsIcon.svg" />
+          </div>
+          <h2>Windows</h2>
+          <p>Installer (EXE) – Run the setup wizard.</p>
+          <a href="https://github.com/Yannosay/destonize/releases/latest/download/DestonizeSetup.exe" class="btn btn-primary">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download .exe
+          </a>
+        </div>
+
+        <div class="download-card disabled">
+          <div class="os-icon-wrapper">
+            <svg class="os-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" v-html="linuxIcon.svg" />
+          </div>
+          <h2>Linux</h2>
+          <p>Coming soon</p>
+          <button class="btn btn-disabled" disabled>Unavailable</button>
         </div>
       </div>
-    </section>
-  </div>
+
+      <p class="release-note">
+        View all releases on <a href="https://github.com/Yannosay/Destonize/releases" target="_blank" rel="noopener" class="release-link">
+          GitHub Releases
+        </a>
+      </p>
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
-import FeatureCard from '~/components/FeatureCard.vue';
+import { siApple, siWindows, siLinux } from 'simple-icons';
 
-const features = [
-  {
-    title: 'Rule‑Based Organization',
-    description: 'Define precise rules using file extensions, names, sizes, dates, and categories.',
-    icon: 'folder'
-  },
-  {
-    title: 'Automatic Updates',
-    description: 'Stay up to date with the latest improvements automatically.',
-    icon: 'refresh'
-  },
-  {
-    title: 'Undo & Safety',
-    description: 'Built‑in undo log ensures you can always revert the last move.',
-    icon: 'undo'
-  },
-  {
-    title: 'Schema Import/Export',
-    description: 'Save and share your organization rules as .ize schema files.',
-    icon: 'save'
-  }
-];
+const appleIcon = siApple;
+const windowsIcon = siWindows;
+const linuxIcon = siLinux;
 </script>
-
-<style lang="scss" scoped>
-.hero {
-  background: transparent;
-  border-bottom: 1px solid $glass-border;
-}
-
-.hero-content {
-  text-align: center;
-  padding: 2rem 0; /* reduced from 4rem */
-}
-
-.hero-logo {
-  max-width: 800px; /* much bigger */
-  width: 100%;
-  margin-bottom: 0.5rem; /* less bottom margin */
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  max-width: 700px;
-  margin: 0 auto 1.5rem;
-  color: $foreground-muted;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.features-overview {
-  background: transparent;
-}
-
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-</style>

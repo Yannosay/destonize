@@ -1,3 +1,6 @@
+@use 'sass:color';
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,13 +8,19 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: $background;
   color: $foreground;
   line-height: 1.6;
-  background-image: radial-gradient(circle at 20% 30%, rgba(134, 160, 217, 0.15) 0%, transparent 60%),
-                    radial-gradient(circle at 80% 70%, rgba(134, 160, 217, 0.1) 0%, transparent 60%);
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(134, 160, 217, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(134, 160, 217, 0.1) 0%, transparent 60%);
   background-attachment: fixed;
+  font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02', 'cv03', 'cv04';
+  letter-spacing: -0.011em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -44,43 +53,56 @@ a {
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: $glass-bg;
-  backdrop-filter: blur($glass-blur) saturate(150%);
-  -webkit-backdrop-filter: blur($glass-blur) saturate(150%);
-  border: 1px solid $glass-border;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   color: $foreground;
-  border-radius: 0.5rem;
+  border-radius: 9999px;
   font-weight: 600;
-  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
-  box-shadow: $glass-shadow;
+  letter-spacing: 0.01em;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.06);
 
   &:hover {
-    background: $glass-bg-hover;
-    border-color: $accent;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
+    border-color: rgba(255, 255, 255, 0.35);
     color: #fff;
     text-decoration: none;
-    transform: translateY(-2px);
+    transform: scale(1.03);
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  &:active {
+    transform: scale(0.97);
+    transition-duration: 0.15s;
   }
 }
 
 .btn-primary {
-  background: $accent;
-  border-color: $accent;
+  background: linear-gradient(135deg, $accent, color.adjust($accent, $lightness: 10%));
+  border-color: rgba(255, 255, 255, 0.25);
   color: #fff;
 
   &:hover {
-    background: $accent-hover;
-    border-color: $accent-hover;
+    background: linear-gradient(135deg, color.adjust($accent, $lightness: 5%), color.adjust($accent, $lightness: 15%));
+    border-color: rgba(255, 255, 255, 0.4);
   }
 }
 
 .btn-secondary {
-  background: $glass-bg;
-  border-color: $glass-border;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border-color: rgba(255, 255, 255, 0.15);
   color: $foreground;
 
   &:hover {
-    background: $glass-bg-hover;
-    border-color: $accent;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    border-color: rgba(255, 255, 255, 0.3);
   }
 }
